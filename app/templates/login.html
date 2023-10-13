@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% block title %}Login{% endblock %}
+{% block content %}
+        <form action="" method="POST">
+            {{form.csrf_token}}
+            <div class="mb-3">
+                <label for="exampleInputEmail1" class="form-label">Username</label>
+                    {{form.username(class="form-control", placeholder="seu usuário")}}
+                    {% if form.errors.username %}
+                    <div class="alert alert-danger" role="alert"> 
+                    {{form.erros.username}}
+                    </div>
+                    {%endif%}
+            
+            </div>
+            <div class="mb-3">
+                <label for="exampleInputPassword1" class="form-label">Password</label>
+                    {{form.password(class="form-control", placeholder="sua senha")}}
+                    {% if form.errors.username %}
+                    <div class="alert alert-danger" role="alert"> 
+                        {{form.erros.password}}
+                    </div>
+                    {%endif%}
+            </div>
+            <div class="mb-3 form-check">
+                <label class="form-check-label" for="exampleCheck1">{{form.remember_me}} Remember-me</label>
+            </div>
+            <button type="submit" class="btn btn-primary">Entrar</button>
+
+        </form>
+
+{% endblock %}
